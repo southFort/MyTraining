@@ -1,14 +1,12 @@
 package w1d2;
 
-/**
- * Реализовать любой алгоритм сортировки массива, содержащего Integer
- * с использованием циклов, ветвлений.
- * При необходимости применять исключения.
- *
- * переменная lenArray задает размер массива
- */
-
 public class Starter {
+
+    /**
+     * Проверяем работы задания
+     * int lenArray - задает длинну массива
+     */
+    
     public static void main(String[] args) {
         int lenArray = 15;
         Integer[] array = Arrays.getArray(lenArray);
