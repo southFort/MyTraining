@@ -6,7 +6,7 @@ public class Starter {
      * Проверяем работы задания
      * int lenArray - задает длинну массива
      */
-    
+
     public static void main(String[] args) {
         int lenArray = 15;
         Integer[] array = Arrays.getArray(lenArray);
