@@ -10,7 +10,7 @@ public class TextFactory {
      * MAX_LENGTH_SENTENCE - максимальное число слов в предложении
      * MAX_LENGTH_PARAGRAPH - максималное количество предложений в абзаце
      */
-    private static final int MAX_SIZE_WORDS_LIBRARY = 1000;
+    private static final int MAX_COUNT_WORDS_LIBRARY = 1000;
     private static final int MAX_LENGTH_WORD = 15;
     private static final int MAX_LENGTH_SENTENCE = 15;
     private static final int MAX_LENGTH_PARAGRAPH = 20;
@@ -85,7 +85,7 @@ public class TextFactory {
      * wordsLibrary() - генерирует массив случайного размера от 1 до 1000 случайных слов
      */
     public static String[] wordsLibrary() {
-        String[] words = new String[randomCount(MAX_SIZE_WORDS_LIBRARY)];
+        String[] words = new String[randomCount(MAX_COUNT_WORDS_LIBRARY)];
         for (int i = 0; i < words.length; i++) {
             words[i] = generateWord();
         }
@@ -107,8 +107,9 @@ public class TextFactory {
     }
 
     /**
-     * метод выброса случайного числа
+     * Метод выброса случайного числа
      * @param i - максимальное значение случайного числа
+     * @return - случайное число от 1 до i
      */
     private static int randomCount(int i) {
         Random random = new Random();
