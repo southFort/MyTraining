@@ -16,7 +16,6 @@ public class MemoryLeak {
      * Для наблюдения за процессом делаем слип на 50 мс
      */
     public void filler() {
-        System.out.println("Имитация утечки памяти...");
         Random random = new Random();
 
         int repeatCount = 0;
