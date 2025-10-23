@@ -1,4 +1,4 @@
-Рализовать следующий интерфейс:
+Реализовать следующий интерфейс:
 
 void getOccurencies(String[] sources, String[] words, String res) throws …;
 

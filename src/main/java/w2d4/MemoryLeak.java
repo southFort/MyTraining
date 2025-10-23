@@ -42,7 +42,7 @@ public class MemoryLeak {
                 }
             }
         } catch (OutOfMemoryError e) {
-            System.err.println("Остановка: " + e.getMessage());
+            System.out.println(e.getStackTrace());
         }
     }
 }

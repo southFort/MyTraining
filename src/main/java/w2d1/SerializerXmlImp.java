@@ -19,7 +19,7 @@ import java.lang.reflect.Method;
 /**
  * Класс для сериализации объектов в XML и обратно
  */
-public class XmlSerializer implements SerializerXml {
+public class SerializerXmlImp implements SerializerXml {
 
     /**
      * Метод сериализации объекта через рефлексию и записываем всю информацию в XML файл
