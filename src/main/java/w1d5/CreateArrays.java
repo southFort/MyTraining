@@ -5,9 +5,7 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
-import java.util.TreeSet;
 
 public class CreateArrays {
     private final String FILE_WORDS = "/home/maksim/tmp/w1d5/library.txt";

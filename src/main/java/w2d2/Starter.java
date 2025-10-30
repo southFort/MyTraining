@@ -1,21 +1,20 @@
 package w2d2;
 
-import java.io.File;
-
 
 public class Starter {
     public static void main(String[] args) throws Exception {
-        File file = new File(new File("src/main/java").getAbsolutePath()
-                + File.separator
-                + Starter.class.getPackage().getName()
-                + File.separator
-                + "SomeClass.java");
+        Worker worker = new WorkerImp();
+        String className = "WorkerImp";
 
-        Creator creator = new Creator();
-        creator.creatorCode(file);
+        ClassCreateCompile classCreateCompile = new ClassCreateCompile();
+        String javaFile = classCreateCompile.createJavaFile(className);
+        classCreateCompile.javaCompile(javaFile);
 
-        CompileJavaFile comJF = new CompileJavaFile(file.toString());
-        comJF.compileJavaFile();
-        comJF.runDoWork();
+        WorkerClassLoader wCL = new WorkerClassLoader();
+        Class<?> loadedClass = wCL.findClass("w2d2." + className);
+        Object o = loadedClass.newInstance();
+        worker = (Worker) o;
+
+        worker.doWork();
     }
 }
