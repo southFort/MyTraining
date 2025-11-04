@@ -1,0 +1,27 @@
+package w3d1;
+
+/**
+ * Класс для предметов. Считывая из БД записи каждой создаем объект
+ */
+public class Subject {
+    private int id;
+    private String name;
+
+    public Subject(int id, String name) {
+        this.id = id;
+        this.name = name;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    @Override
+    public String toString() {
+        return "Subject{id=" + id + ", name='" + name + "'}";
+    }
+}
