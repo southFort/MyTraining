@@ -1,8 +1,15 @@
-package w3d1;
+package w3d1.util;
+
+import w3d1.dao.*;
+import w3d1.entity.RequestEnrollStudentInSubjects;
+import w3d1.entity.RequestEnrollStudentsInSubject;
+import w3d1.entity.Student;
+import w3d1.entity.Subject;
 
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.SQLException;
+import java.util.List;
 
 /**
  * Метод для интерактивной работы с базой данных и реализованным функционалом
@@ -20,6 +27,14 @@ public class Menu {
 
         StudentDAO studentDAO = new StudentDAOImpl(conn);
         SubjectDAO subjectDAO = new SubjectDAOImpl(conn);
+        EnrollmentDAO enrollmentDAO = new EnrollmentDAOImpl(conn);
+
+        RequestEnrollStudentInSubjects request1 = new RequestEnrollStudentInSubjects(11, List.of(9, 10));
+        RequestEnrollStudentsInSubject request2 = new RequestEnrollStudentsInSubject(List.of(6, 7, 8), 6);
+
+        enrollmentDAO.enrollStudentInSubjects(request1);
+        enrollmentDAO.enrollStudentsInSubject(request2);
+        System.out.println("Запросы без меню завершены");
 
         firstMenu(studentDAO, subjectDAO);
 
@@ -67,7 +82,7 @@ public class Menu {
             switch (i) {
                 case (1):
                     System.out.println("Список студентов:");
-                    for (Student st : studentDAO.getAllStudent()) {
+                    for (Student st : studentDAO.getAllStudents()) {
                         System.out.println(st);
                     }
                     break;

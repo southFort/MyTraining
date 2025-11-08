@@ -1,4 +1,7 @@
-package w3d1;
+package w3d1.dao;
+
+import w3d1.entity.Student;
+import w3d1.entity.Subject;
 
 import java.util.List;
 

@@ -1,5 +1,8 @@
 package w3d1;
 
+import w3d1.entity.RequestEnrollStudentsInSubject;
+import w3d1.util.Menu;
+
 import java.io.IOException;
 import java.sql.SQLException;
 

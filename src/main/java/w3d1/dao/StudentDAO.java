@@ -1,4 +1,7 @@
-package w3d1;
+package w3d1.dao;
+
+import w3d1.entity.Student;
+import w3d1.entity.Subject;
 
 import java.util.List;
 
@@ -6,7 +9,7 @@ import java.util.List;
  * Интерфейс по методам студентов
  */
 public interface StudentDAO {
-    List<Student> getAllStudent();
+    List<Student> getAllStudents();
     List<Subject> getSubjectsByStudent(int studentId);
     void enrollStudentInSubject(int studenId, int subjectId);
     void excludeStudentFromSubject(int studentId, int subjectId);

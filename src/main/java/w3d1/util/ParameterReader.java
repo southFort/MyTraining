@@ -1,4 +1,4 @@
-package w3d1;
+package w3d1.util;
 
 import java.io.BufferedReader;
 import java.io.IOException;
