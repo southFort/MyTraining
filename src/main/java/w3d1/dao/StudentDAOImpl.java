@@ -19,11 +19,6 @@ public class StudentDAOImpl implements StudentDAO {
             JOIN student_subject ss ON s.id = ss.subject_id
             WHERE ss.student_id = ?
             """;
-    private static final String ENROLL_STUDENT_IN_SUBJECT = """
-            INSERT INTO student_subject (student_id, subject_id)
-            VALUES (?, ?)
-            ON CONFLICT (student_id, subject_id) DO NOTHING
-            """;
     private static final String EXCLUDE_STUDENT_FROM_SUBJECT =
             "DELETE FROM student_subject WHERE (student_id = ? AND subject_id = ?)";
 
@@ -69,21 +64,6 @@ public class StudentDAOImpl implements StudentDAO {
             System.out.println(e.getMessage());
         }
         return subjects;
-    }
-
-    /**
-     * Записываем студента на конкретный предмет. Вносим запись в связную таблицы
-     * с id студента и предмета
-     */
-    @Override
-    public void enrollStudentInSubject(int studentId, int subjectId) {
-        try (PreparedStatement stmt = conn.prepareStatement(ENROLL_STUDENT_IN_SUBJECT)) {
-            stmt.setInt(1, studentId);
-            stmt.setInt(2, subjectId);
-            stmt.executeUpdate();
-        } catch (SQLException e) {
-            System.out.println(e.getMessage());
-        }
     }
 
     /**

@@ -4,18 +4,18 @@ import java.util.List;
 
 public class RequestEnrollStudentInSubjects {
     private int studentId;
-    private List<Integer> subjectIds;
+    private List<Subject> subjects;
 
-    public RequestEnrollStudentInSubjects(int studentId, List<Integer> subjectIds) {
+    public RequestEnrollStudentInSubjects(int studentId, List<Subject> subjects) {
         this.studentId = studentId;
-        this.subjectIds = subjectIds;
+        this.subjects = subjects;
     }
 
     public int getStudentId() {
         return studentId;
     }
 
-    public List<Integer> getSubjectIds() {
-        return subjectIds;
+    public List<Subject> getSubjects() {
+        return subjects;
     }
 }

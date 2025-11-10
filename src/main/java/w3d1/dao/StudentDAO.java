@@ -11,6 +11,5 @@ import java.util.List;
 public interface StudentDAO {
     List<Student> getAllStudents();
     List<Subject> getSubjectsByStudent(int studentId);
-    void enrollStudentInSubject(int studenId, int subjectId);
     void excludeStudentFromSubject(int studentId, int subjectId);
 }

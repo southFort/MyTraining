@@ -1,0 +1,84 @@
+Connection create
+Запросы по массовой записи завершены
+
+Список студентов:
+Student{id=1, name='Александр', surname='Иванов'}
+Student{id=2, name='Мария', surname='Петрова'}
+Student{id=3, name='Дмитрий', surname='Сидоров'}
+Student{id=4, name='Елена', surname='Кузнецова'}
+Student{id=5, name='Анна', surname='Волкова'}
+Student{id=6, name='Артем', surname='Морозов'}
+Student{id=7, name='Ольга', surname='Лебедева'}
+Student{id=8, name='Мария', surname='Кузьмина'}
+Student{id=9, name='Иван', surname='Соколов'}
+Student{id=10, name='Татьяна', surname='Новикова'}
+Student{id=11, name='Екатерина', surname='Михайлкова'}
+
+Список предметов:
+Subject{id=1, name='Математический анализ'}
+Subject{id=5, name='Философия'}
+Subject{id=6, name='Теория вероятности'}
+Subject{id=7, name='Архитектуры сетей'}
+Subject{id=8, name='ООП'}
+Subject{id=9, name='Линейная алгебра'}
+Subject{id=10, name='Физика'}
+Subject{id=2, name='История'}
+Subject{id=11, name='Программирование на Java'}
+
+Студент Елена Кузнецова записан на предметы:
+Subject{id=6, name='Теория вероятности'}
+
+Записываем студента Елена Кузнецова на ООП
+Запись завершена
+
+Проверка:
+Subject{id=6, name='Теория вероятности'}
+Subject{id=8, name='ООП'}
+
+Исключаем студента Елена Кузнецова с ООП
+Subject{id=1, name='Математический анализ'}
+Subject{id=5, name='Философия'}
+Subject{id=6, name='Теория вероятности'}
+Subject{id=7, name='Архитектуры сетей'}
+Subject{id=8, name='ООП'}
+Subject{id=9, name='Линейная алгебра'}
+Subject{id=10, name='Физика'}
+Subject{id=2, name='История'}
+Subject{id=11, name='Программирование на Java'}
+Исключение завершена
+
+Проверка:
+Subject{id=6, name='Теория вероятности'}
+
+На предмет 'Теория вероятности' записаны студенты:
+Student{id=4, name='Елена', surname='Кузнецова'}
+Student{id=8, name='Мария', surname='Кузьмина'}
+Student{id=9, name='Иван', surname='Соколов'}
+Student{id=10, name='Татьяна', surname='Новикова'}
+
+Добавлен новый предмет: 'Компьютерная графика'
+
+Проверка:
+Subject{id=1, name='Математический анализ'}
+Subject{id=5, name='Философия'}
+Subject{id=6, name='Теория вероятности'}
+Subject{id=7, name='Архитектуры сетей'}
+Subject{id=8, name='ООП'}
+Subject{id=9, name='Линейная алгебра'}
+Subject{id=10, name='Физика'}
+Subject{id=2, name='История'}
+Subject{id=11, name='Программирование на Java'}
+Subject{id=25, name='Компьютерная графика'}
+
+Предмет: 'Компьютерная графика' удален из программы
+
+Проверка:
+Subject{id=1, name='Математический анализ'}
+Subject{id=5, name='Философия'}
+Subject{id=6, name='Теория вероятности'}
+Subject{id=7, name='Архитектуры сетей'}
+Subject{id=8, name='ООП'}
+Subject{id=9, name='Линейная алгебра'}
+Subject{id=10, name='Физика'}
+Subject{id=2, name='История'}
+Subject{id=11, name='Программирование на Java'}

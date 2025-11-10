@@ -2,12 +2,19 @@ package w3d1.dao;
 
 import w3d1.entity.RequestEnrollStudentInSubjects;
 import w3d1.entity.RequestEnrollStudentsInSubject;
+import w3d1.entity.Student;
+import w3d1.entity.Subject;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
 public class EnrollmentDAOImpl implements EnrollmentDAO {
+    private static final String ENROLL_STUDENT_IN_SUBJECT = """
+            INSERT INTO student_subject (student_id, subject_id)
+            VALUES (?, ?)
+            ON CONFLICT (student_id, subject_id) DO NOTHING
+            """;
     private static final String ADD_STUDENT_SUBJECT = """
             INSERT INTO student_subject (student_id, subject_id)
             VALUES (?, ?)
@@ -15,6 +22,21 @@ public class EnrollmentDAOImpl implements EnrollmentDAO {
             """;
 
     private Connection conn;
+
+    /**
+     * Записываем студента на конкретный предмет. Вносим запись в связную таблицы
+     * с id студента и предмета
+     */
+    @Override
+    public void enrollStudentInSubject(int studentId, int subjectId) {
+        try (PreparedStatement stmt = conn.prepareStatement(ENROLL_STUDENT_IN_SUBJECT)) {
+            stmt.setInt(1, studentId);
+            stmt.setInt(2, subjectId);
+            stmt.executeUpdate();
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+    }
 
     public EnrollmentDAOImpl(Connection conn) {
         this.conn = conn;
@@ -32,9 +54,9 @@ public class EnrollmentDAOImpl implements EnrollmentDAO {
     public void enrollStudentInSubjects(RequestEnrollStudentInSubjects request) {
         try (PreparedStatement stmt = conn.prepareStatement(ADD_STUDENT_SUBJECT)) {
             conn.setAutoCommit(false);
-            for (Integer subjectId : request.getSubjectIds()) {
+            for (Subject subject : request.getSubjects()) {
                 stmt.setInt(1, request.getStudentId());
-                stmt.setInt(2, subjectId);
+                stmt.setInt(2, subject.getId());
                 stmt.addBatch();
             }
             stmt.executeBatch();
@@ -67,8 +89,8 @@ public class EnrollmentDAOImpl implements EnrollmentDAO {
     public void enrollStudentsInSubject(RequestEnrollStudentsInSubject request) {
         try (PreparedStatement stmt = conn.prepareStatement(ADD_STUDENT_SUBJECT)) {
             conn.setAutoCommit(false);
-            for (Integer studentId : request.getStudentIds()) {
-                stmt.setInt(1, studentId);
+            for (Student student : request.getStudents()) {
+                stmt.setInt(1, student.getId());
                 stmt.setInt(2, request.getSubjectId());
                 stmt.addBatch();
             }
